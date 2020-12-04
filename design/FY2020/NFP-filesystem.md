@@ -31,9 +31,11 @@ There are two things we can do:
 2. Move everything to use `fs::path`, including in consumers.
     * `CommandLineInterface` would no longer use concatenation of std::string, like `std::string outputFilePrefix = std::string{outDirPathName} + std::string{prefixOutName};`, instead it would use `fs::path` and not have to deal with trailing slashes etc, it can just use the operator/ overload, eg: `fs::path outputFilePrefix = fs::path{outDirPathName} / prefixOutName;`
 
+I have - for the most part - implemented Part 1., you can find a difference here: https://github.com/NREL/EnergyPlus/compare/8376_FileSystem_Move_minimal...jmarrec:8376_FileSystem_Move
+
 ## Testing/Validation/Data Sources ##
 
-insert text
+This will require testing the CLI on all three platforms: mac, windows, and ubuntu.
 
 
 ## References ##
